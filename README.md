@@ -41,15 +41,22 @@ func Hello(name string) string {
 ```bash
 git add -A
 git commit -m "add initial code"
-git tag v1.0.1
-git push --tag
+# 直接提交到master分支
+git push origin master
+
+# 如果是多人协作，则开启一个branch
 git checkout -b v1
 git push -u origin v1
+
+# 给当前代码打上标签
+git tag v1.0.1
+git push --tag
+
 ```
 
-## 在其他项目中引入当前模块
+## 测试模块是否已经成功提交并正常使用
 
-我们还是在当前根目录文件夹中创建一个`test\`文件夹,进入其中并创建一个`app.go`,写入如下代码：
+创建模块的角度来看，我们已经完成了我们的所我们还是在当前根目录文件夹中创建一个`test\`文件夹,进入其中并创建一个`app.go`,写入如下代码：
 
 ```go
 package main
@@ -65,4 +72,12 @@ func main() {
 }
 ```
 
-执行命令行`go mod init github.com/ZhangWei-KUMO/test`,在当前目录中会添加一个`go.mod`文件。
+执行命令行`go mod init test`,给当前测试包创建一个`go.mod`文件，然后通过`go mod tidy`自动加载代码中所需的依赖。
+
+> 注意：go mod tidy可能会有代码版本的滞后，我们可以手动编辑`go.mod`文件指定版本。
+
+然后我们运行代码:
+
+```go
+go run .
+```
