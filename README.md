@@ -1,16 +1,12 @@
 # gorobot
 
-本文将会基于Golang官方教程教初学者如何编写一个自己的Go模块。话不多说，首先创建一个空文件夹
+![](https://img.shields.io/badge/go-v1.16.5-blue)
+
+本文将会基于Golang官方教程教初学者如何编写一个自己的Go模块。话不多说，首先创建一个空文件夹`gorobot`
 
 ```bash
-mkdir go-greetings
-cd go-greetings
-```
-
-然后我们需要使用`go mod init`命令行对根目录进行初始化，并创建go.mod文件。
-
-```bash
-go mod init github.com/ZhangWei-KUMO/gorobot
+mkdir gorobot
+cd gorobot
 ```
 
 > 注意：在这里我使用的是自己的github仓库，开发者应按照实际情况对应自己仓库便于该包后续下载。
@@ -81,3 +77,5 @@ func main() {
 ```go
 go run .
 ```
+
+好了！您的第一个golang包成功了
